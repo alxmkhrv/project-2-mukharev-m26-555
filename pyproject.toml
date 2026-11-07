@@ -1,7 +1,7 @@
 [project]
-name = "primitive-db"
+name = "project-2-mukharev-m26-555"
 version = "0.1.0"
-description = "Add your description here"
+description = "Консольная база данных на Python с CRUD-операциями и хранением данных в JSON"
 readme = "README.md"
 authors = [
     { name = "alexander", email = "mukharev1@yandex.ru" }
@@ -14,6 +14,7 @@ dependencies = [
 
 [project.scripts]
 database = "primitive_db.main:main"
+project = "primitive_db.main:main"
 
 [build-system]
 requires = ["uv_build>=0.13.1,<0.14.0"]
@@ -32,3 +33,6 @@ exclude = ["venv", ".venv", "dist", "__pycache__"]
 [tool.ruff.lint]
 select = ["E", "F", "I"]
 ignore = []
+
+[tool.uv.build-backend]
+module-name = "primitive_db"

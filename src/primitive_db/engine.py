@@ -3,6 +3,7 @@ import shlex
 import prompt
 from prettytable import PrettyTable
 
+from .constants import META_FILE
 from .core import (
     create_table,
     delete,
@@ -80,7 +81,7 @@ def run():
     cache_result = create_cacher()
 
     while True:
-        metadata = load_metadata("db_meta.json")
+        metadata = load_metadata(META_FILE)
 
         user_input = prompt.string("Введите команду: ")
         try:
@@ -117,7 +118,7 @@ def run():
             old_count = len(metadata)
             create_table(metadata, args[1], args[2:])
             if len(metadata) > old_count:
-                save_metadata("db_meta.json", metadata)
+                save_metadata(META_FILE, metadata)
                 cache_result = create_cacher()
                 columns = metadata[args[1]]
                 column_description = []
@@ -133,7 +134,7 @@ def run():
             tables_before_delete = len(metadata)
             drop_table(metadata, args[1])
             if len(metadata) < tables_before_delete:
-                save_metadata("db_meta.json", metadata)
+                save_metadata(META_FILE, metadata)
                 cache_result = create_cacher()
 
         elif command == "insert":

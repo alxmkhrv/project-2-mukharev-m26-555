@@ -15,7 +15,7 @@ wheels = [
 ]
 
 [[package]]
-name = "primitive-db"
+name = "project-2-mukharev-m26-555"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
